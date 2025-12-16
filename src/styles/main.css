@@ -1,0 +1,184 @@
+/* Main Application Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Variables */
+:root {
+  --app-bg: #020617;
+  --app-bg-alt: #0b1220;
+  --card-bg: #0f172a;
+  --card-border: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-cyan: #22d3ee;
+  --accent-sky: #0ea5e9;
+  --accent-blue: #3b82f6;
+}
+
+/* Force dark mode */
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--app-bg);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--app-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Element Plus Dark Theme Overrides */
+.dark {
+  --el-bg-color: var(--card-bg);
+  --el-bg-color-overlay: var(--card-bg);
+  --el-text-color-primary: var(--text-primary);
+  --el-text-color-regular: var(--text-secondary);
+  --el-border-color: var(--card-border);
+  --el-border-color-light: var(--card-border);
+  --el-fill-color-blank: var(--card-bg);
+  --el-color-primary: var(--accent-sky);
+}
+
+/* Element Plus Card Override */
+.el-card {
+  --el-card-bg-color: var(--card-bg);
+  --el-card-border-color: var(--card-border);
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Element Plus Input Override */
+.el-textarea__inner,
+.el-input__inner {
+  background-color: var(--app-bg) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text-primary) !important;
+}
+
+.el-textarea__inner:focus,
+.el-input__inner:focus {
+  border-color: var(--accent-sky) !important;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2) !important;
+}
+
+/* Element Plus Select Override */
+.el-select__wrapper {
+  background-color: var(--app-bg) !important;
+  border-color: var(--card-border) !important;
+}
+
+.el-select-dropdown {
+  background-color: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+}
+
+.el-select-dropdown__item {
+  color: var(--text-primary) !important;
+}
+
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover {
+  background-color: var(--app-bg) !important;
+}
+
+/* Element Plus Slider Override */
+.el-slider__runway {
+  background-color: var(--card-border) !important;
+}
+
+.el-slider__bar {
+  background: linear-gradient(to right, var(--accent-cyan), var(--accent-blue)) !important;
+}
+
+.el-slider__button {
+  border-color: var(--accent-sky) !important;
+}
+
+/* Gradient Button */
+.btn-gradient {
+  @apply px-6 py-3 rounded-xl font-semibold text-white;
+  background: linear-gradient(to right, #22d3ee, #0ea5e9, #3b82f6);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.btn-gradient:active {
+  transform: scale(0.98);
+}
+
+.btn-gradient:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Card Glass Effect */
+.glass-card {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
+}
+
+/* Glow Effect */
+.glow {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.5);
+}
+
+/* Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 211, 238, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Loader Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
